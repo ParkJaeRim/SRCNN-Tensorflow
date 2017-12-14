@@ -128,10 +128,11 @@ def input_setup(sess, config):
 
   sub_input_sequence = []
   sub_label_sequence = []
-  padding = abs(config.image_size - config.label_size) / 2 # 6
+  #padding = abs(config.image_size - config.label_size) / 2 # 6
+  padding = int(abs(config.image_size - config.label_size) / 2) # 6
 
   if config.is_train:
-    for i in xrange(len(data)):
+    for i in range(len(data)):
       input_, label_ = preprocess(data[i], config.scale)
 
       if len(input_.shape) == 3:
@@ -142,6 +143,7 @@ def input_setup(sess, config):
       for x in range(0, h-config.image_size+1, config.stride):
         for y in range(0, w-config.image_size+1, config.stride):
           sub_input = input_[x:x+config.image_size, y:y+config.image_size] # [33 x 33]
+          #print(padding)
           sub_label = label_[x+padding:x+padding+config.label_size, y+padding:y+padding+config.label_size] # [21 x 21]
 
           # Make channel value

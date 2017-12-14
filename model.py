@@ -86,10 +86,10 @@ class SRCNN(object):
     if config.is_train:
       print("Training...")
 
-      for ep in xrange(config.epoch):
+      for ep in range(config.epoch):
         # Run by batch images
         batch_idxs = len(train_data) // config.batch_size
-        for idx in xrange(0, batch_idxs):
+        for idx in range(0, batch_idxs):
           batch_images = train_data[idx*config.batch_size : (idx+1)*config.batch_size]
           batch_labels = train_label[idx*config.batch_size : (idx+1)*config.batch_size]
 
@@ -97,8 +97,8 @@ class SRCNN(object):
           _, err = self.sess.run([self.train_op, self.loss], feed_dict={self.images: batch_images, self.labels: batch_labels})
 
           if counter % 10 == 0:
-            print("Epoch: [%2d], step: [%2d], time: [%4.4f], loss: [%.8f]" \
-              % ((ep+1), counter, time.time()-start_time, err))
+            print(("Epoch: [%2d], step: [%2d], time: [%4.4f], loss: [%.8f]" \
+              % ((ep+1), counter, time.time()-start_time, err)))
 
           if counter % 500 == 0:
             self.save(config.checkpoint_dir, counter)
