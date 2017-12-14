@@ -7,6 +7,10 @@ Tensorflow implementation of Convolutional Neural Networks for super-resolution.
  * h5py
  * matplotlib
 
+```
+pip install tensorflow-gpu h5py pillow matplotlib
+```
+
 This code requires Tensorflow. Also scipy is used instead of Matlab or OpenCV. Especially, installing OpenCV at Linux is sort of complicated. So, with reproducing this paper, I used scipy instead. For more imformation about scipy, click [here](https://www.scipy.org/).
 
 ## Usage
