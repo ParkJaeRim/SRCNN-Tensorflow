@@ -67,7 +67,7 @@ def prepare_data(sess, dataset):
     data_dir = os.path.join(os.getcwd(), dataset)
     data = glob.glob(os.path.join(data_dir, "*.bmp"))
   else:
-    data_dir = os.path.join(os.sep, (os.path.join(os.getcwd(), dataset)), "Set5")
+    data_dir = os.path.join(os.sep, (os.path.join(os.getcwd(), dataset)), "Set0")
     data = glob.glob(os.path.join(data_dir, "*.bmp"))
 
   return data
